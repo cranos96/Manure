@@ -26,8 +26,7 @@ public class ModNeoForge {
 
 	public static final DeferredItem<Item> MANURE_ITEM_OBJECT = ITEMS.register("manure", () -> new BoneMealItem((new Item.Properties())));
 	
-	public ModNeoForge() {
-		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public ModNeoForge(IEventBus modEventBus) {
 		modEventBus.addListener(this::loadComplete);
 		modEventBus.addListener(this::buildContents);
 
