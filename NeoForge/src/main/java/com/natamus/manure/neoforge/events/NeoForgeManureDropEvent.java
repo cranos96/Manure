@@ -7,10 +7,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.TickEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.EntityLeaveLevelEvent;
 import net.neoforged.neoforge.event.level.LevelEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 @EventBusSubscriber
 public class NeoForgeManureDropEvent {
@@ -25,11 +25,7 @@ public class NeoForgeManureDropEvent {
 	}
 
 	@SubscribeEvent
-	public static void onServerTick(TickEvent.ServerTickEvent e) {
-		if (!e.phase.equals(TickEvent.Phase.END)) {
-			return;
-		}
-
+	public static void onServerTick(ServerTickEvent.Post e) {
 		ManureDropEvent.onServerTick(e.getServer());
 	}
 
